@@ -37,6 +37,7 @@ output "web_app_names" {
 output "web_apps_custom_domain_verification_id" {
   description = "The custom domain verification IDs of the linux Function Apps."
   value       = { for app in azurerm_linux_web_app.web_app : app.name => app.custom_domain_verification_id }
+  sensitive   = true
 }
 
 output "web_apps_default_hostnames" {
@@ -57,11 +58,13 @@ output "web_apps_possible_outbound_ip_addresses" {
 output "web_apps_site_credentials" {
   description = "The site credentials for the linux Function Apps."
   value       = { for app in azurerm_linux_web_app.web_app : app.name => app.site_credential }
+  sensitive   = true
 }
 
 output "linux_web_apps_custom_domain_verification_id" {
   description = "The custom domain verification IDs of the linux web apps."
   value       = { for app in azurerm_linux_web_app.web_app : app.name => app.custom_domain_verification_id }
+  sensitive   = true
 }
 
 output "linux_web_apps_hosting_environment_id" {
